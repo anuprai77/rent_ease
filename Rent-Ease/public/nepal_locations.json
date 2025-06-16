@@ -1,0 +1,23 @@
+{
+  "Province 1": {
+    "cities": ["Biratnagar", "Itahari", "Dharan", "Bhadrapur", "Ilam"]
+  },
+  "Madhesh Province": {
+    "cities": ["Janakpur", "Birgunj", "Kalaiya", "Gaur", "Jaleshwar"]
+  },
+  "Bagmati Province": {
+    "cities": ["Kathmandu", "Lalitpur", "Bhaktapur", "Hetauda", "Dhulikhel"]
+  },
+  "Gandaki Province": {
+    "cities": ["Pokhara", "Besisahar", "Kusma", "Baglung", "Beni"]
+  },
+  "Lumbini Province": {
+    "cities": ["Butwal", "Bhairahawa", "Tansen", "Ghorahi", "Nepalgunj"]
+  },
+  "Karnali Province": {
+    "cities": ["Birendranagar", "Manma", "Jumla", "Dunai", "Simikot"]
+  },
+  "Sudurpashchim Province": {
+    "cities": ["Dhangadhi", "Mahendranagar", "Tikapur", "Dipayal", "Amargadhi"]
+  }
+}
