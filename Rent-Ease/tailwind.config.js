@@ -17,5 +17,20 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+
+        // ✅ Custom scrollbar-hiding utility
+        function ({ addUtilities }) {
+            addUtilities({
+                '.no-scrollbar': {
+                    '&::-webkit-scrollbar': {
+                        display: 'none',
+                    },
+                    '-ms-overflow-style': 'none',
+                    'scrollbar-width': 'none',
+                },
+            });
+        }
+    ],
 };
