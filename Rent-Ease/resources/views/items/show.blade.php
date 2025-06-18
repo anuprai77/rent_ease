@@ -112,32 +112,38 @@
                         </div>
                     </div>
 
-<!-- Action buttons -->
-<div class="mt-6 flex justify-end space-x-3">
-    @if ($item->is_available)
-        @auth
-            <form action="{{ route('cart.add', $item->id) }}" method="POST" class="flex items-center space-x-3">
-                @csrf
-                <div class="flex flex-col">
-                    <label class="text-sm font-medium text-gray-700 mb-1">Weeks:</label>
-                    <input type="number" name="weeks" value="1" min="1"
-                        class="w-16 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                </div>
-                <button type="submit"
-                    class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Add to Cart
-                </button>
-            </form>
-        @else
-            <a href="{{ route('login') }}" 
-               class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Login to Rent
-            </a>
-        @endauth
-    @else
-        <span class="text-red-500 font-medium">This item is currently unavailable</span>
-    @endif
-</div>
+                    <!-- Action buttons -->
+                    <div class="mt-6 flex justify-end space-x-3">
+                        @if ($item->is_available)
+                            @auth
+                                <form action="{{ route('cart.add', $item->id) }}" method="POST"
+                                    class="flex flex-col sm:flex-row items-start sm:items-end gap-4">
+                                    @csrf
+                                    <small class="text-sm text-green-600 order-first sm:order-none sm:mb-1">
+                                        * 10% discount for rentals longer than 4 weeks
+                                    </small>
+
+                                    <div class="flex flex-col w-full sm:w-auto">
+                                        <label class="text-sm font-medium text-gray-700 mb-1">Weeks:</label>
+                                        <input type="number" name="weeks" value="1" min="1"
+                                            class="w-full sm:w-16 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+
+                                    <button type="submit"
+                                        class="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}"
+                                    class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Login to Rent
+                                </a>
+                            @endauth
+                        @else
+                            <span class="text-red-500 font-medium">This item is currently unavailable</span>
+                        @endif
+                    </div>
 
                 </div>
             </div>

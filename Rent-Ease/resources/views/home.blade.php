@@ -51,7 +51,7 @@
                                     </h4>
 
                                     <p class="text-gray-600 mb-4 flex items-center text-sm">
-                                        <span class="material-symbols-outlined text-base mr-1">category</span>
+                                        <span class="material-symbols-outlined text-base mr-1">Category</span>
                                         {{ $item->category->name ?? 'Uncategorized' }}
                                     </p>
 
@@ -63,13 +63,10 @@
 
                                         <div class="flex flex-wrap gap-2 text-sm text-gray-500">
                                             <span class="flex items-center bg-gray-100 px-2 py-1 rounded">
-                                                <span class="material-symbols-outlined text-sm mr-1">build</span>
+                                                <span class="material-symbols-outlined text-sm mr-1">Build</span>
                                                 {{ ucfirst($item->condition) }}
                                             </span>
-                                            <span class="flex items-center bg-gray-100 px-2 py-1 rounded">
-                                                <span class="material-symbols-outlined text-sm mr-1">money</span>
-                                                Rs. {{ number_format($item->min_deposit) }}
-                                            </span>
+                                             
                                         </div>
                                     </div>
 
@@ -83,6 +80,28 @@
                     </div>
                 </div>
             </section>
+            
+            
+{{-- category --}}
+<section class="mb-16 h-min-96 p-12 m-12 py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow-lg">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-12">Explore Categories</h2>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10">
+            @foreach($categories as $category)
+                <a href="{{ route('items.index', ['category' => $category->id]) }}"
+                   class="flex items-center justify-center px-8 py-4 bg-white text-gray-800 rounded-2xl
+                          hover:bg-indigo-100 text-lg font-semibold
+                          shadow-md border border-gray-200 transition-all duration-300
+                          hover:shadow-lg hover:border-indigo-300 hover:text-indigo-800
+                          hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:ring-offset-2
+                          min-w-[180px] text-center"> {{-- Added min-w and text-center for better sizing --}}
+                    {{ $category->name }}
+                </a>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 
             <x-test />
 
@@ -123,6 +142,7 @@
                     </div>
                 </div>
             </section>
+
             {{-- waw --}}
 <section class="py-16 bg-blue-600">
     <div class="max-w-7xl mx-auto px-4 m-16 sm:px-6 lg:px-8">
